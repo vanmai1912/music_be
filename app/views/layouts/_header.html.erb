@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center" style="width:100%;background-color: rgba(0, 0, 0, 0.5); color: white;">
+<nav class="navbar navbar-expand-lg ">
+  <div class="container-fluid">
+    
+    <%= link_to "OU Music", clients_path, class: "navbar-brand", "aria-current": "page" %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+         <%= link_to "Client", clients_path, class: "nav-link #{'active' if current_page?(clients_path)}", "aria-current": "page" %>
+
+        </li>
+        <li class="nav-item">
+         <%= link_to "Song", songs_path, class: "nav-link #{'active' if current_page?(songs_path)}", "aria-current": "page" %>
+
+        </li>
+        <li class="nav-item">
+        <%= link_to "Type", types_path, class: "nav-link #{'active' if current_page?(types_path)}", "aria-current": "page" %>
+
+        </li>
+        <li class="nav-item">
+        <%= link_to "Singer", singers_path, class: "nav-link #{'active' if current_page?(singers_path)}", "aria-current": "page" %>
+
+        </li>
+        <li class="nav-item">
+        <%= link_to "Dashboard", dashboards_path, class: "nav-link #{'active' if current_page?(dashboards_path)}", "aria-current": "page" %>
+
+        </li>
+       
+      </ul>
+    </div>
+  </div>
+  <div class="col" style="height: 100%">
+    <div class="">
+      <%= button_to "Logout", destroy_user_session_path, method: :delete, style: "color: black; font-size: 20px", class: "btn btn-small btn-primary mx-2" %>
+          
+
+    </div>
+  </div>
+</nav>
+</div>
+
+<style>
+.nav-link.active {
+  background-color: #6ba6c9; /* Điền mã màu xanh nhạt bạn muốn ở đây */
+  color: white;
+}
+</style>

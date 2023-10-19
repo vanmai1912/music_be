@@ -1,0 +1,67 @@
+
+<h2 class="mt-2" style="text-align: center">Singers</h2>
+<div style="text-align: right; margin-top: 20px; margin-right:17%">
+  <%= link_to "New Singer", new_singer_path, class: "btn btn-primary" %>
+</div>
+<table class="table table-borderless">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @singers.each do |singer| %>
+      <tr>
+        <td><%= singer.name %></td>
+        <td><%= singer.description %></td>
+        <td>
+          <%= link_to edit_singer_path(singer) do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
+        </td>
+        <td>
+         <%= link_to singer_path(singer), method: :delete do %>
+            <i class="fas fa-trash"></i>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>
+
+<style>
+  /* Để căn giữa bảng */
+  table.table-borderless {
+    width: 70%; /* Tổng chiều rộng của bảng là 70% */
+    margin: 0 auto;
+  }
+
+  /* Thiết lập lề trái và lề phải cho mỗi cột */
+  table.table-borderless th,
+  table.table-borderless td {
+    padding: 10px; /* Để tạo khoảng cách bên trong các ô */
+    margin-left: 2%; /* Lề trái của mỗi cột là 2% */
+    margin-right: 2%; /* Lề phải của mỗi cột là 2% */
+  }
+
+  /* Thiết lập kích thước cho từng cột */
+  table.table-borderless th:nth-child(2),
+  table.table-borderless td:nth-child(2) {
+    width: 50%; /* Kích thước của cột 2 là 25% */
+  }
+
+  table.table-borderless th:nth-child(4),
+  table.table-borderless td:nth-child(4) {
+    width: 10%; /* Kích thước của cột 4 là 10% */
+  }
+
+  table.table-borderless th:nth-child(3),
+  table.table-borderless td:nth-child(3) {
+    width: 10%; /* Kích thước của cột 5 là 10% */
+  }
+</style
+

@@ -1,0 +1,83 @@
+
+<h2 class="mt-2" style="text-align: center">Clients</h2>
+<div style="text-align: right; margin-top: 20px; margin-right:17%">
+  <%= link_to "New Client", new_client_path, class: "btn btn-primary" %>
+</div>
+<table class="table table-borderless">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Phone</th>
+      <th>Active</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @clients.each do |client| %>
+      <tr>
+        <td><%= client.email %></td>
+        <td><%= client.first_name %></td>
+        <td><%= client.last_name %></td>
+        <td><%= client.phone %></td>
+        <td><%= client.active %></td>
+        <td>
+          <%= link_to edit_client_path(client) do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
+        </td>
+        <td>
+          <%= form_for client, url: client_path(client), method: :delete do |f| %>
+            <%= f.submit "Delete" %>
+          <% end %> 
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>
+
+<style>
+  /* Để căn giữa bảng */
+  table.table-borderless {
+    width: 70%; /* Tổng chiều rộng của bảng là 70% */
+    margin: 0 auto;
+  }
+
+  /* Thiết lập lề trái và lề phải cho mỗi cột */
+  table.table-borderless th,
+  table.table-borderless td {
+    padding: 10px; /* Để tạo khoảng cách bên trong các ô */
+    margin-left: 2%; /* Lề trái của mỗi cột là 2% */
+    margin-right: 2%; /* Lề phải của mỗi cột là 2% */
+  }
+
+  /* Thiết lập kích thước cho từng cột */
+  table.table-borderless th:nth-child(2),
+  table.table-borderless td:nth-child(2) {
+    width: 15%; /* Kích thước của cột 2 là 25% */
+  }
+
+  table.table-borderless th:nth-child(4),
+  table.table-borderless td:nth-child(4) {
+    width: 15%; /* Kích thước của cột 4 là 10% */
+  }
+
+  table.table-borderless th:nth-child(3),
+  table.table-borderless td:nth-child(3) {
+    width: 15%; /* Kích thước của cột 5 là 10% */
+  }
+
+  table.table-borderless th:nth-child(5),
+  table.table-borderless td:nth-child(5) {
+    width: 10%; /* Kích thước của cột 4 là 10% */
+  }
+
+  table.table-borderless th:nth-child(6),
+  table.table-borderless td:nth-child(6) {
+    width: 10%; /* Kích thước của cột 4 là 10% */
+  }
+</style
+

@@ -1,0 +1,82 @@
+<h1>Dashboard</h1>
+<div class="chart-container" style="width: 50%; margin: 0 auto; text-align: center;">
+  <canvas id="user-chart"></canvas>
+</div>
+<div class="chart-container mt-5" style="width: 50%; margin: 0 auto; text-align: center;">
+  <canvas id="song-chart"></canvas>
+</div>
+<div class="chart-container mt-5" style="width: 50%; margin: 0 auto; text-align: center;">
+  <canvas id="singer-chart"></canvas>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  
+  var userData = <%= raw @user_count_by_month %>;
+  var songData = <%= raw @song_count_by_month %>;
+  var singerData = <%= raw @singer_count_by_month %>;
+  
+  var userChart = new Chart(document.getElementById("user-chart").getContext('2d'), {
+    type: 'bar',
+    data: {
+      datasets: [{
+        label: 'Số lượng Users',
+        data: userData,
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgba(255, 99, 132, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+          
+        }
+      }
+    }
+  });
+
+  var songChart = new Chart(document.getElementById("song-chart").getContext('2d'), {
+    type: 'bar',
+    data: {
+      datasets: [{
+        label: 'Số lượng Songs',
+        data: songData,
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+  var singerChart = new Chart(document.getElementById("singer-chart").getContext('2d'), {
+    type: 'bar',
+    data: {
+      datasets: [{
+        label: 'Số lượng Singers',
+        data: singerData,
+        backgroundColor: 'rgba(255, 206, 86, 0.2)',
+        borderColor: 'rgba(255, 206, 86, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+
